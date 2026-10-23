@@ -8,8 +8,7 @@ import java.net.Socket;
 
 public class Client {
 	public static void main(String[] args) {
-		try {
-			Socket socket=new Socket("localhost",5001);
+		try (Socket socket = new Socket("localhost",5001)) {
 			System.out.println("Connecté au serveur !");
 			PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
 			out.println("abc / 0");
